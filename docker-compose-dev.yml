@@ -10,6 +10,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: workwave-db
+      POSTGRES_HOST: 0.0.0.0
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
@@ -22,6 +23,7 @@ services:
       - ./:/app
     depends_on:
       - postgres
+    command: sh -c "npx prisma generate && npm run dev"
 
 volumes:
   postgres-data:

@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "darwin-arm64", "linux-arm64-openssl-1.1.x"]
 }
 
 datasource db {
@@ -13,7 +14,8 @@ datasource db {
 model User {
   id         String    @id @default(cuid())
   name       String
-  email      String
+  email      String    @unique
+  image      String
   created_at DateTime  @default(now())
   // favorited JobPost[]
   // applied_to JobPost[]

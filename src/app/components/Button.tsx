@@ -6,7 +6,7 @@ type Props = {};
 
 function Button({}: Props) {
   const { data: session } = useSession();
-  console.log(session?.user);
+  // console.log(session?.user);
   return (
     <>
       <button onClick={() => signIn()}>Sign In</button>
