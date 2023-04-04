@@ -9,3 +9,27 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id         String    @id @default(cuid())
+  name       String
+  email      String
+  created_at DateTime  @default(now())
+  // favorited JobPost[]
+  // applied_to JobPost[]
+  JobPost    JobPost[]
+}
+
+model JobPost {
+  id          String @id @default(cuid())
+  job_id      String
+  user        User   @relation(fields: [user_id], references: [id])
+  user_id     String
+  title       String
+  description String
+
+  // saved, applied, contacted, etc.
+  status String
+  // it's position in the column. 
+  index  Int
+}
