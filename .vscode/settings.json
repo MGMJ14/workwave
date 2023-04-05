@@ -4,6 +4,5 @@
   "editor.formatOnSave": true,
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "editor.acceptSuggestionOnEnter": "off"
+  }
 }

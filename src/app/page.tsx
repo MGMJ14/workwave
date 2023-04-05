@@ -1,4 +1,4 @@
-import Button from './components/Button';
+import Button from './components/LoginButton';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 // src/pages/api/auth/[...nextauth].js
@@ -9,13 +9,27 @@ export default async function Home() {
   console.log(session);
 
   return (
+    <main className="bg-orange-100">
+      <p className=""></p>
+      <p className=""></p>
 
-    <main className="bg-slate-800 flex min-h-screen w-full flex-col">
-      <h1 className="text-slate-100 text-3xl self-center border-2 p-16 rounded-xl w-2/3 text-center h-screen sticky top-0 bg-slate-500 z-10 border-white">WorkWave</h1>
-      <p className='z-20 border-2 border-white self-end bg-slate-950 h-screen w-4/5 sticky top-40 text-slate-100'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus convallis justo sollicitudin fermentum. Nulla euismod id elit nec commodo. Nullam elementum, tortor quis facilisis rutrum, turpis nunc condimentum arcu, eget tincidunt diam odio in mi. Curabitur ligula nulla, tempor quis mattis nec, suscipit eu elit. Pellentesque fermentum tellus nisi, dictum mollis quam facilisis id. Sed ultrices vitae dolor eu cursus. Donec tristique, arcu sit amet maximus interdum, risus ligula malesuada justo, vitae convallis lorem arcu ac sapien. Aliquam at arcu eget diam tristique sagittis. Morbi accumsan auctor elit, eget blandit sapien sagittis quis. Nam efficitur nulla id metus sodales, ac feugiat sem fermentum. Nam sit amet magna ut eros elementum gravida. Cras neque tortor, viverra at metus fermentum, porttitor sagittis justo. Aliquam facilisis tellus felis, vitae posuere erat consectetur quis. Cras quis diam porta, pellentesque lectus non, porttitor sapien. Praesent faucibus purus id lacus imperdiet, quis luctus risus auctor.</p>
-      <p className='z-40 border-2 border-white self-start bg-slate-400 h-screen w-4/5 sticky top-40 text-slate-100'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus convallis justo sollicitudin fermentum. Nulla euismod id elit nec commodo. Nullam elementum, tortor quis facilisis rutrum, turpis nunc condimentum arcu, eget tincidunt diam odio in mi. Curabitur ligula nulla, tempor quis mattis nec, suscipit eu elit. Pellentesque fermentum tellus nisi, dictum mollis quam facilisis id. Sed ultrices vitae dolor eu cursus. Donec tristique, arcu sit amet maximus interdum, risus ligula malesuada justo, vitae convallis lorem arcu ac sapien. Aliquam at arcu eget diam tristique sagittis. Morbi accumsan auctor elit, eget blandit sapien sagittis quis. Nam efficitur nulla id metus sodales, ac feugiat sem fermentum. Nam sit amet magna ut eros elementum gravida. Cras neque tortor, viverra at metus fermentum, porttitor sagittis justo. Aliquam facilisis tellus felis, vitae posuere erat consectetur quis. Cras quis diam porta, pellentesque lectus non, porttitor sapien. Praesent faucibus purus id lacus imperdiet, quis luctus risus auctor.</p>
+      <div className="flex flex-wrap justify-center h-screen max-w-6xl mx-auto py-8">
+        <div className="w-full md:w-1/2 lg:w-1/3 p-6">
+          <div className="bg-white rounded-lg shadow-lg">
+            <div className="p-4">
+              <h2 className="text-2xl font-bold mb-2">
+                Welcome to WorkWave, {session ? session.user.name : 'Guest'}
+              </h2>
+              <p className="text-gray-700 text-base">
+                Tired of trying to manage and track your jobs? WorkWave is here
+                to help. Search, filter, and sort your job applications by
+                status to help you stay on top of the application process.
+                WorkWave is the best way to manage your jobs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
-
-
