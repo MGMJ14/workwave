@@ -1,20 +1,25 @@
+import React from 'react';
 import './globals.css';
+import Navbar from './components/Navbar';
 import { Providers } from './providers';
 
-export const metadata = {
-  title: 'WorkWave',
-  description: 'WorkWave Description',
-};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+
+
+export default async function RootLayout({ children }: any) {
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+
+
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
+
+
+
       </body>
     </html>
   );
